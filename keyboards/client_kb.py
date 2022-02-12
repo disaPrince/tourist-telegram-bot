@@ -1,7 +1,7 @@
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ReplyKeyboardMarkup, KeyboardButton
-from handlers import client
 
-b1 = KeyboardButton('Главное меню')
+
+kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(KeyboardButton('Главное меню'))
 
 
 
@@ -42,10 +42,36 @@ urlto = InlineKeyboardMarkup(row_width=1).add(InlineKeyboardButton(text='Дуб�
                                               InlineKeyboardButton(text='Венеция', callback_data='button7'), \
                                               InlineKeyboardButton(text='Назад', callback_data='button5'))
 
-urlDate = InlineKeyboardMarkup(row_width=1).add(InlineKeyboardButton(text='1', callback_data='button3'), \
-                                                InlineKeyboardButton(text='2', callback_data='button3'), \
-                                                InlineKeyboardButton(text='3', callback_data='button3')).add(
-                                                InlineKeyboardButton(text='Назад', callback_data='button5'))
 
-kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
-kb.add(b1)
+
+bday = InlineKeyboardMarkup(row_width=5).add(InlineKeyboardButton(text='1', callback_data='button8'), InlineKeyboardButton(text='2', callback_data='button8'), InlineKeyboardButton(text='3', callback_data='button8'),\
+                                             InlineKeyboardButton(text='4', callback_data='button8'), InlineKeyboardButton(text='5', callback_data='button8'), InlineKeyboardButton(text='6', callback_data='button8'),\
+                                             InlineKeyboardButton(text='7', callback_data='button8'), InlineKeyboardButton(text='8', callback_data='button8'), InlineKeyboardButton(text='9', callback_data='button8'),\
+                                             InlineKeyboardButton(text='10', callback_data='button8'), InlineKeyboardButton(text='11', callback_data='button8'), InlineKeyboardButton(text='12', callback_data='button8'),\
+                                             InlineKeyboardButton(text='13', callback_data='button8'), InlineKeyboardButton(text='14', callback_data='button8'), InlineKeyboardButton(text='15', callback_data='button8'),\
+                                             InlineKeyboardButton(text='16', callback_data='button8'), InlineKeyboardButton(text='17', callback_data='button8'), InlineKeyboardButton(text='18', callback_data='button8'),\
+                                             InlineKeyboardButton(text='19', callback_data='button8'), InlineKeyboardButton(text='20', callback_data='button8'), InlineKeyboardButton(text='21', callback_data='button8'),\
+                                             InlineKeyboardButton(text='22', callback_data='button8'), InlineKeyboardButton(text='23', callback_data='button8'), InlineKeyboardButton(text='24', callback_data='button8'),\
+                                             InlineKeyboardButton(text='25', callback_data='button8'), InlineKeyboardButton(text='26', callback_data='button8'), InlineKeyboardButton(text='27', callback_data='button8'),\
+                                             InlineKeyboardButton(text='28', callback_data='button8'), InlineKeyboardButton(text='29', callback_data='button8'), InlineKeyboardButton(text='30', callback_data='button8'))\
+                                             .insert(InlineKeyboardButton(text='31', callback_data='button8'))
+
+
+
+
+budg = InlineKeyboardMarkup(row_width=2).add(InlineKeyboardButton(text='100 000 - 200 000 тг', callback_data='button9'),\
+                                             InlineKeyboardButton(text='200 000 - 400 000 тг', callback_data='button9'),\
+                                             InlineKeyboardButton(text='400 000 - 600 000 тг', callback_data='button9'),\
+                                             InlineKeyboardButton(text='600 000 - 1 000 000 тг', callback_data='button9'))
+
+adults = InlineKeyboardMarkup(row_width=5).add(InlineKeyboardButton(text='1', callback_data='button10'),\
+                                              InlineKeyboardButton(text='2', callback_data='button10'),\
+                                              InlineKeyboardButton(text='3', callback_data='button10'),\
+                                              InlineKeyboardButton(text='4', callback_data='button10'),\
+                                              InlineKeyboardButton(text='5', callback_data='button10'))
+
+children = InlineKeyboardMarkup(row_width=5).add(InlineKeyboardButton(text='1', callback_data='button11'),\
+                                              InlineKeyboardButton(text='2', callback_data='button11'),\
+                                              InlineKeyboardButton(text='3', callback_data='button11'),\
+                                              InlineKeyboardButton(text='4', callback_data='button11'),\
+                                              InlineKeyboardButton(text='5', callback_data='button11'))

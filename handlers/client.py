@@ -13,6 +13,7 @@ async def url_command(message: types.Message):
 
 async def menu(message: types.Message):
     await message.answer('Добро пожаловать в Tour Bot!', reply_markup=client_kb.urlkb)
+    await message.delete()
 
 async def button1_call(callback: types.CallbackQuery):
     await callback.message.answer('Информация')
@@ -30,8 +31,8 @@ async def button7_call(callback: types.CallbackQuery):
     await callback.message.answer('Выберите страну:', reply_markup=client_kb.urlto)
     await callback.answer()
 
-async def button8_call(callback: types.CallbackQuery):
-    await callback.message.answer('Выберите день:', reply_markup=client_kb.urlDate)
+async def button_day(callback: types.CallbackQuery):
+    await callback.message.answer('Выберите день:', reply_markup=client_kb.bday)
     await callback.answer()
 
 async def button5_call(callback: types.CallbackQuery):
@@ -43,6 +44,20 @@ async def button3_call(callback: types.CallbackQuery):
 
 async def button4_call(callback: types.CallbackQuery):
     await callback.message.delete()
+
+async def budget(callback: types.CallbackQuery):
+    await callback.message.answer('Выберите бюджет:', reply_markup=client_kb.budg)
+    await callback.answer()
+
+async def button_adults(callback: types.CallbackQuery):
+    await callback.message.answer('Количество взрослых(старше 16 лет):', reply_markup=client_kb.adults)
+    await callback.answer()
+
+async def button_children(callback: types.CallbackQuery):
+    await callback.message.answer('Количество детей(младше 16 лет):', reply_markup=client_kb.children)
+    await callback.answer()
+
+
 
 
 
@@ -59,6 +74,9 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_callback_query_handler(button6_call, text='button6')
     dp.register_callback_query_handler(button7_call, text='button')
     dp.register_message_handler(menu, Text(equals='Главное меню', ignore_case=True))
-    dp.register_callback_query_handler(button8_call, text='button3')
+    dp.register_callback_query_handler(button_day, text='button7')
+    dp.register_callback_query_handler(budget, text='button8')
+    dp.register_callback_query_handler(button_adults, text='button9')
+    dp.register_callback_query_handler(button_children, text='button10')
 
 
