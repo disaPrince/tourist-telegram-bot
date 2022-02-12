@@ -57,6 +57,10 @@ async def button_children(callback: types.CallbackQuery):
     await callback.message.answer('Количество детей(младше 16 лет):', reply_markup=client_kb.children)
     await callback.answer()
 
+async def result(callback: types.CallbackQuery):
+    await callback.answer("Ваш запрос обрабатывается, ожидайте ответа 💻",show_alert=True)
+    await callback.message.answer('Подходящий тур по вашему запросу:')
+
 
 
 
@@ -78,5 +82,6 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_callback_query_handler(budget, text='button8')
     dp.register_callback_query_handler(button_adults, text='button9')
     dp.register_callback_query_handler(button_children, text='button10')
+    dp.register_callback_query_handler(result, text='button11')
 
 
