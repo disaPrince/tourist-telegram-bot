@@ -1,0 +1,17 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="handlers.admin.FSMAdmin" />
+          <option value="handlers.admin.cm_start" />
+          <option value="handlers.admin.load_photo" />
+          <option value="handlers.admin.load_name" />
+          <option value="handlers.admin.load_faculty" />
+          <option value="handlers.admin.load_service" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
