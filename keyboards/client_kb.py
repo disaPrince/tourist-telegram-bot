@@ -5,21 +5,22 @@ kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(Keybo
 
 
 
-#Описаие и кнопки(Самые первые кнопки)
-urlkb = InlineKeyboardMarkup(row_width=2).add(InlineKeyboardButton(text='Информация 🖥', callback_data='button1'),\
+
+
+menu_b = InlineKeyboardMarkup(row_width=2).add(InlineKeyboardButton(text='Информация 🖥', callback_data='button1'),\
                                              InlineKeyboardButton(text='Туры✈', callback_data='button2'), \
                                              InlineKeyboardButton(text='Контактные данные 📱', callback_data='button3'), \
                                              InlineKeyboardButton(text='Выйти 🔴', callback_data='button4'))
 
 
-urlb = InlineKeyboardMarkup(row_width=1).add(InlineKeyboardButton(text='Алматы', callback_data='button6'),\
+from_b = InlineKeyboardMarkup(row_width=1).add(InlineKeyboardButton(text='Алматы', callback_data='button6'),\
                                              InlineKeyboardButton(text='Астана', callback_data='button6'),\
                                              InlineKeyboardButton(text='Шымкент', callback_data='button6'),\
                                              InlineKeyboardButton(text='Караганда', callback_data='button6'),\
                                              InlineKeyboardButton(text='Назад', callback_data='button5'))
 
 
-urlmon = InlineKeyboardMarkup(row_width=1).row(InlineKeyboardButton(text='Январь', callback_data='button'),\
+mon_b = InlineKeyboardMarkup(row_width=1).row(InlineKeyboardButton(text='Январь', callback_data='button'),\
                                                InlineKeyboardButton(text='Февраль', callback_data='button'),\
                                                InlineKeyboardButton(text='Март', callback_data='button')).row(
                                                InlineKeyboardButton(text='Апрель', callback_data='button'),\
@@ -34,7 +35,7 @@ urlmon = InlineKeyboardMarkup(row_width=1).row(InlineKeyboardButton(text='Янв
                                                InlineKeyboardButton(text='Назад', callback_data='button5'))
 
 
-urlto = InlineKeyboardMarkup(row_width=1).add(InlineKeyboardButton(text='Дубай', callback_data='button7'), \
+to_b = InlineKeyboardMarkup(row_width=1).add(InlineKeyboardButton(text='Дубай', callback_data='button7'), \
                                               InlineKeyboardButton(text='Анкара', callback_data='button7'),\
                                               InlineKeyboardButton(text='Каир', callback_data='button7'),\
                                               InlineKeyboardButton(text='Майами', callback_data='button7'),\
@@ -44,7 +45,7 @@ urlto = InlineKeyboardMarkup(row_width=1).add(InlineKeyboardButton(text='Дуб�
 
 
 
-bday = InlineKeyboardMarkup(row_width=5).add(InlineKeyboardButton(text='1', callback_data='button8'), InlineKeyboardButton(text='2', callback_data='button8'), InlineKeyboardButton(text='3', callback_data='button8'),\
+day_b = InlineKeyboardMarkup(row_width=5).add(InlineKeyboardButton(text='1', callback_data='button8'), InlineKeyboardButton(text='2', callback_data='button8'), InlineKeyboardButton(text='3', callback_data='button8'),\
                                              InlineKeyboardButton(text='4', callback_data='button8'), InlineKeyboardButton(text='5', callback_data='button8'), InlineKeyboardButton(text='6', callback_data='button8'),\
                                              InlineKeyboardButton(text='7', callback_data='button8'), InlineKeyboardButton(text='8', callback_data='button8'), InlineKeyboardButton(text='9', callback_data='button8'),\
                                              InlineKeyboardButton(text='10', callback_data='button8'), InlineKeyboardButton(text='11', callback_data='button8'), InlineKeyboardButton(text='12', callback_data='button8'),\
@@ -59,18 +60,18 @@ bday = InlineKeyboardMarkup(row_width=5).add(InlineKeyboardButton(text='1', call
 
 
 
-budg = InlineKeyboardMarkup(row_width=2).add(InlineKeyboardButton(text='100 000 - 200 000 тг', callback_data='button9'),\
+budg_b = InlineKeyboardMarkup(row_width=2).add(InlineKeyboardButton(text='100 000 - 200 000 тг', callback_data='button9'),\
                                              InlineKeyboardButton(text='200 000 - 400 000 тг', callback_data='button9'),\
                                              InlineKeyboardButton(text='400 000 - 600 000 тг', callback_data='button9'),\
                                              InlineKeyboardButton(text='600 000 - 1 000 000 тг', callback_data='button9'))
 
-adults = InlineKeyboardMarkup(row_width=5).add(InlineKeyboardButton(text='1', callback_data='button10'),\
+adults_b = InlineKeyboardMarkup(row_width=5).add(InlineKeyboardButton(text='1', callback_data='button10'),\
                                               InlineKeyboardButton(text='2', callback_data='button10'),\
                                               InlineKeyboardButton(text='3', callback_data='button10'),\
                                               InlineKeyboardButton(text='4', callback_data='button10'),\
                                               InlineKeyboardButton(text='5', callback_data='button10'))
 
-children = InlineKeyboardMarkup(row_width=5).add(InlineKeyboardButton(text='1', callback_data='button11'),\
+child_b = InlineKeyboardMarkup(row_width=5).add(InlineKeyboardButton(text='1', callback_data='button11'),\
                                               InlineKeyboardButton(text='2', callback_data='button11'),\
                                               InlineKeyboardButton(text='3', callback_data='button11'),\
                                               InlineKeyboardButton(text='4', callback_data='button11'),\
