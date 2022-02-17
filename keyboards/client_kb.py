@@ -6,10 +6,10 @@ kb = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True).add(Keybo
 
 
 #Описаие и кнопки(Самые первые кнопки)
-urlkb = InlineKeyboardMarkup(row_width=2).add(InlineKeyboardButton(text='Информация', callback_data='button1'),\
+urlkb = InlineKeyboardMarkup(row_width=2).add(InlineKeyboardButton(text='Информация 🖥', callback_data='button1'),\
                                              InlineKeyboardButton(text='Туры✈', callback_data='button2'), \
-                                             InlineKeyboardButton(text='Контактные данные', callback_data='button3'), \
-                                             InlineKeyboardButton(text='Выйти', callback_data='button4'))
+                                             InlineKeyboardButton(text='Контактные данные 📱', callback_data='button3'), \
+                                             InlineKeyboardButton(text='Выйти 🔴', callback_data='button4'))
 
 
 urlb = InlineKeyboardMarkup(row_width=1).add(InlineKeyboardButton(text='Алматы', callback_data='button6'),\
