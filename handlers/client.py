@@ -1,9 +1,8 @@
-from aiogram import bot, types
-from create_bot import dp
+from aiogram import types
 from aiogram.dispatcher import Dispatcher
 from keyboards import client_kb
 from aiogram.dispatcher.filters import Text
-from database import sqlite_db
+from database import db_connect
 
 
 async def start(message: types.Message):
@@ -57,22 +56,30 @@ async def back(callback: types.CallbackQuery):
 async def budget(callback: types.CallbackQuery):
     await callback.message.answer('Какой ваш бюджет: 💳', reply_markup=client_kb.budg_b)
     await callback.answer()
+    await callback.message.delete()
 
 
 async def adults(callback: types.CallbackQuery):
     await callback.message.answer('Количество взрослых(старше 16 лет): 👨‍👦‍👦', reply_markup=client_kb.adults_b)
     await callback.answer()
+    await callback.message.delete()
 
 
 async def children(callback: types.CallbackQuery):
     await callback.message.answer('Количество детей(младше 16 лет):👨‍👦‍👦', reply_markup=client_kb.child_b)
     await callback.answer()
+    await callback.message.delete()
 
 
 async def result(callback: types.CallbackQuery):
     await callback.answer("Ваш запрос обрабатывается, ожидайте ответа 💻", show_alert=True)
     await callback.message.answer('Подходящий тур по вашему запросу:')
     await callback.answer()
+    await callback.message.delete()
+
+async def result1(message):
+    await db_connect.sql_read(message)
+
 
 
 def register_handlers_client(dp: Dispatcher):
@@ -90,3 +97,6 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_callback_query_handler(adults, text='button9')
     dp.register_callback_query_handler(children, text='button10')
     dp.register_callback_query_handler(result, text='button11')
+    dp.register_callback_query_handler(result1, text='button11')
+
+

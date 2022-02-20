@@ -10,7 +10,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram_calendar import DialogCalendar, dialog_cal_callback
 
 
-username = ['Adqwertyil', 'KingDias']
+username = ['Adqwertyil', 'KingDias', 'JDam20']
 tour = Tours.Tours
 
 
@@ -26,7 +26,7 @@ class Tour(StatesGroup):
     price = State()
 
 
-def register_handlers_client(dp: Dispatcher):
+def register_handlers_admin(dp: Dispatcher):
     dp.register_message_handler(admin_menu, commands=['moderate'])
     dp.register_callback_query_handler(add_tour, text='addTour')
     dp.register_message_handler(load_photo, content_types=['photo'], state=Tour.photo)
