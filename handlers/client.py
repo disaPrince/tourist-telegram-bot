@@ -8,7 +8,6 @@ from database import db_connect
 async def start(message: types.Message):
     await message.answer(message.from_user.first_name, reply_markup=client_kb.kb)
     await message.answer('Добро пожаловать в Tour Bot!', reply_markup=client_kb.menu_b)
-    # await sqlite_db.sql_read(message)
     await message.delete()
 
 
@@ -76,9 +75,7 @@ async def result(callback: types.CallbackQuery):
     await callback.message.answer('Подходящий тур по вашему запросу:')
     await callback.answer()
     await callback.message.delete()
-
-async def result1(message):
-    await db_connect.sql_read(message)
+    await db_connect.sql_read(callback.message)
 
 
 
@@ -97,6 +94,5 @@ def register_handlers_client(dp: Dispatcher):
     dp.register_callback_query_handler(adults, text='button9')
     dp.register_callback_query_handler(children, text='button10')
     dp.register_callback_query_handler(result, text='button11')
-    dp.register_callback_query_handler(result1, text='button11')
 
 

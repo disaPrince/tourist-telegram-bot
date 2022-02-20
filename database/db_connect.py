@@ -53,15 +53,16 @@ async def db_get_tour(message: types.Message):
                              add(InlineKeyboardButton(f'Удалить {ret[1]}', callback_data=f'del {ret[1]}')))
     connection.commit()
 
+async def sql_read(message: types.Message):
+    cur.execute('select * from tour')
+    for ret in cur.fetchall():
+        await bot.send_photo(message.chat.id, ret[0], f'{ret[1]}, {ret[2]}, {ret[3]}, {ret[4]}, {ret[5]}, {ret[6]}, {ret[7]}, {ret[8]}')
+    connection.commit()
 
 async def db_delete_tour(data):
     cur.execute('delete from tour where name = %s', (data, ))
     connection.commit()
 
-
-async def sql_read(message):
-    for ret in cur.execute('SELECT * FROM tour').fetchall():
-        await bot.send_message(message.from_user.id, ret[0], ret[1], ret[2], ret[3], ret[4], ret[5], ret[6])
 
 
 
