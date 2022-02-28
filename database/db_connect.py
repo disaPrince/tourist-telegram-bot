@@ -29,9 +29,9 @@ def create_connection(host_name, user_name, user_password, db_name):
 
 
 def create_database(connection, query):
-    cursor = connection.cursor()
+    cur = connection.cursor()
     try:
-        cursor.execute(query)
+        cur.execute(query)
         print("Database created successfully")
     except Error as e:
         print(f"The error '{e}' occurred")

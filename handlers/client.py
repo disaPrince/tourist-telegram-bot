@@ -18,8 +18,7 @@ async def menu(message: types.Message):
 
 async def information(callback: types.CallbackQuery):
     await callback.message.answer('Туристическая компания для нахождения очень выгодных туров по всему миру 🍹')
-    await callback.message.answer(
-        'Для подробной информацией перейдите на <a href="https://www.youtube.com/">сайт компании</a>',
+    await callback.message.answer(r'Для подробной информацией перейдите на <a href="C:\Users\JDam\Desktop\travel website\index.html">сайт компании</a>',
         parse_mode=types.ParseMode.HTML)
     await callback.answer()
 
