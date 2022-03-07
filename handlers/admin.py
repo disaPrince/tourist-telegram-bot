@@ -51,6 +51,7 @@ async def add_tour(callback: types.CallbackQuery):
     if callback.from_user.username in username:
         await Tour.photo.set()
         await callback.message.answer("Загрузи фото:")
+        await callback.answer()
 
 
 async def load_photo(message: types.Message, state: FSMContext):
@@ -126,6 +127,7 @@ async def set_price(message: types.Message, state: FSMContext):
 
 async def get_tours(callback: types.CallbackQuery):
     await callback.message.answer("Текущие туры:")
+    await callback.answer()
     await db_connect.db_get_tour(callback.message)
 
 

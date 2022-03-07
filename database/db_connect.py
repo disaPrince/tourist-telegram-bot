@@ -3,7 +3,9 @@ from mysql.connector import Error
 from aiogram import types
 from create_bot import bot
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from domain import Tours
 
+tour = Tours.Tours
 
 def create_connection(host_name, user_name, user_password, db_name):
     global connection
@@ -54,7 +56,7 @@ async def db_get_tour(message: types.Message):
     connection.commit()
 
 async def sql_read(message: types.Message):
-    cur.execute('select * from tour')
+    cur.execute('select * from tour where from_city = %s', (tour.from_city))
     for ret in cur.fetchall():
         await bot.send_photo(message.chat.id, ret[0], f'{ret[1]}, {ret[2]}, {ret[3]}, {ret[4]}, {ret[5]}, {ret[6]}, {ret[7]}, {ret[8]}')
     connection.commit()

@@ -1,7 +1,7 @@
 1) Run VENV library module as script 
    * `python -m venv venv`
 2) Activate VENV
-    * `venv/Scripts/activate`
+    * `venv\Scripts\activate`
 3) Install aiogram
     * `pip install aiogram`
     * `pip install aiogram_calendar`
