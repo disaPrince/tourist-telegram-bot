@@ -97,15 +97,15 @@ async def set_to_city(message: types.Message, state: FSMContext):
     if message.from_user.username in username:
         tour.to_city = message.text
         await state.finish()
-        await message.reply("Дата начало тура: ", reply_markup=await DialogCalendar().start_calendar())
+        await message.reply("Дата начало тур: ", reply_markup=await DialogCalendar().start_calendar())
 
 
 @dp.callback_query_handler(dialog_cal_callback.filter())
 async def process_dialog_calendar(callback_query: CallbackQuery, callback_data: dict):
-    selected, date = await DialogCalendar().process_selection(callback_query, callback_data)
+    selected, dates = await DialogCalendar().process_selection(callback_query, callback_data)
     if selected:
-        await callback_query.message.answer(f'You selected {date.strftime("%d/%m/%Y")}')
-        tour.when_date = date
+        await callback_query.message.answer(f'You selected {dates.strftime("%d/%m/%Y")}')
+        tour.when_date = dates
         await Tour.days.set()
         await callback_query.message.reply("Длителность в днях: ")
 

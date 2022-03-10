@@ -6,7 +6,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from domain import Tours
 
 tour = Tours.Tours
-
+tour1 = Tours.Tour
 def create_connection(host_name, user_name, user_password, db_name):
     global connection
     global cur
@@ -26,10 +26,7 @@ def create_connection(host_name, user_name, user_password, db_name):
         print(f"The error '{e}' occurred")
     # return connection
 
-
 # connection = create_connection("localhost", "root", "", "tour_bot")
-
-
 def create_database(connection, query):
     cur = connection.cursor()
     try:
@@ -38,14 +35,12 @@ def create_database(connection, query):
     except Error as e:
         print(f"The error '{e}' occurred")
 
-
 async def db_add_tour(tour):
     cur.execute('INSERT INTO tour (img, name, description, rating, from_city, to_city, when_date, days, price)'
                    'VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)',
                    (tour.photo, tour.name, tour.description, int(tour.rating), tour.from_city,
                     tour.to_city, tour.when_date.date().isoformat(), int(tour.days), int(tour.price)))
     connection.commit()
-
 
 async def db_get_tour(message: types.Message):
     cur.execute('select img, name, description, price from tour')
@@ -56,7 +51,7 @@ async def db_get_tour(message: types.Message):
     connection.commit()
 
 async def sql_read(message: types.Message):
-    cur.execute('select * from tour where from_city = %s', (tour.from_city))
+    cur.execute('select * from tour where from_city = %s and to_city = %s and when_date = %s and days <= %s', (tour1.parameters))
     for ret in cur.fetchall():
         await bot.send_photo(message.chat.id, ret[0], f'{ret[1]}, {ret[2]}, {ret[3]}, {ret[4]}, {ret[5]}, {ret[6]}, {ret[7]}, {ret[8]}')
     connection.commit()
@@ -64,7 +59,3 @@ async def sql_read(message: types.Message):
 async def db_delete_tour(data):
     cur.execute('delete from tour where name = %s', (data, ))
     connection.commit()
-
-
-
-

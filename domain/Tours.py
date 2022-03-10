@@ -9,3 +9,7 @@ class Tours:
     when_date = ''
     days = ''
     price = ''
+
+class Tour:
+    parameters = ''
+    day = None
